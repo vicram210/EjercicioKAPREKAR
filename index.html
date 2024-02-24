@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Kaprekar</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    function numeroDescendente(numero){
+        numero = numero + '';
+        const tabla = numero.split(''); //Colocar cada numero en cada casilla
+        const tablaOrdenada = tabla.sort(function(a, b){return b - a}); //Ordenar la tabla de forma descendente
+
+        const tablaString = tablaOrdenada.join('');
+        const tablaNum = Number(tablaString);
+        
+        return tablaNum;
+    }
+
+    function numeroAscendente(numero){
+        numero = numero + '';
+        const tabla = numero.split(''); //Colocar cada numero en cada casilla
+        const tablaOrdenada = tabla.sort(function(a, b){return a - b});; //Ordenar la tabla de forma ascendente
+
+        const tablaString = tablaOrdenada.join('');
+        const tablaNum = Number(tablaString);
+
+        return tablaNum;
+    }
+
+
+    let numero = prompt('Introduce un número'); //Es un string
+
+    let valoresAceptados = /^[0-9]+$/;
+
+    if(!numero.match(valoresAceptados)){
+        console.log('Tienen que ser numeros')
+
+    } else if(numero.length != 4){
+        console.log('El numero tiene que tener 4 digitos')
+
+    } else {
+        let contador = 0;
+        let numeroCalculado = 0;
+
+        while(numero != 6174){
+
+        const tablaDescendente = numeroDescendente(numero);
+        const tablaAscendente = numeroAscendente(numero);
+        
+
+        numeroCalculado = tablaDescendente - tablaAscendente;
+
+        console.log(numero + ' -> ' + numeroCalculado)
+
+        numero = numeroCalculado;
+
+        contador++;
+
+        }
+
+        console.log('Nos a costado ' + contador + ' intentos')
+    }
+
+    
+    
+</script>
+</html>
