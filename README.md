@@ -1,4 +1,3 @@
-====================================================
 Lo primero de todo, muchas gracias por leer esto
 
 Te habras dado cuenta de que en el repositorio tiene poco commits
